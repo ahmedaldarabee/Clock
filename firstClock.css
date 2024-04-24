@@ -1,0 +1,124 @@
+
+* {
+        
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 100vh;
+    background-color: #222;
+
+}
+
+body::before {
+    content: '';
+    position: absolute;
+
+    inset: 0;
+    background: linear-gradient(#08ff12 , #0791ff);
+
+    z-index: 1;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+}
+
+.circle {
+
+    position: relative;
+
+    width: 500px;
+    height: 500px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #ffffff10;
+    
+    border-radius: 50%;
+
+    box-shadow: 
+    0 0 0 2px #fff5,
+    0 0 0 20px #333,
+    0 0 0 22px #fff,
+    0 0 50px 0 #fff,
+    0 0 450px 0 #fff;
+
+}
+
+.circle::after,
+.circle::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    
+    transform-origin: bottom;
+    background: linear-gradient(0deg , transparent , #fff);
+    translate: -50% -80%;
+    
+    animation-timing-function: steps(60);
+    animation-name: scorpion ;
+
+}
+.circle::before {
+    width: 2px;
+    height: 170px;
+
+    border-radius: 2px;
+
+    animation-duration: 20s;
+    animation-iteration-count: 0;
+}
+.circle::after {
+    width: 4px;
+    height: 130px;
+
+    border-radius: 5px; 
+    animation-duration: 120s;
+    animation-iteration-count: 0;
+}
+
+.circle ul li {
+    list-style: none;
+    color: white;
+    
+    position: absolute;
+    top: 10px;
+    
+    transform-origin: 0 240px;
+    transform: rotate( calc(-30deg * var(--i)) );
+    
+    font-family: 'consoles';
+    text-decoration: uppercase;
+    
+    font-weight: bold;
+    font-size: 2.5rem;
+}
+.circle ul li span {
+    display: inline-block;
+    transform: rotate( calc(30deg * var(--i)) );
+
+    text-shadow: 
+    0 0 15px #fff,
+    0 0 35px #fff,
+    0 0 75px #fff,
+    0 0 175px #fff;
+}
+
+@keyframes scorpion {
+    0% {
+         rotate: 0deg;     
+    }
+    100% {
+         rotate: 360deg;     
+    }
+}
